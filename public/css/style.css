@@ -1,0 +1,161 @@
+body {
+  background-color: #003366;
+  color: white;
+}
+
+a {
+  color: white;
+}
+
+p {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 28px;
+}
+
+label {
+  color: blue;
+}
+
+input {
+  width: 100%;
+}
+
+.input-id {
+  font-size: 12px;
+  color: black;
+  background-color: white;
+  padding-left: 7px;
+  box-sizing: border-box;
+  width: 5%;
+}
+
+.input-title {
+  font-size: 12px;
+  color: black;
+  background-color: white;
+  padding-left: 7px;
+  box-sizing: border-box;
+  width: 20%;
+}
+
+.input-body {
+  font-size: 12px;
+  color: black;
+  background-color: white;
+  padding-left: 4px;
+  box-sizing: border-box;
+  width: 50%;
+}
+
+.form-control {
+  width: 80%;
+}
+
+.form-control1 {
+  width: 100%;
+}
+
+.form-control-id {
+  width: 5% !important;
+}
+
+.form-control-title {
+  width: 40% !important;
+}
+
+.form-control-body {
+  width: 47% !important;
+}
+
+.control-label-white {
+  color: white;
+}
+
+.control-label-blue {
+  color: blue;
+}
+
+.control-font {
+  color: orange;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 20px;
+}
+
+.control-font1 {
+  color: blue;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.navbar {
+  color: blue;
+  margin-bottom: 0;
+}
+
+.navbar-nav {
+  padding: 0px 15px 0px 0px;
+}
+
+.navbar-brand {
+  background-color: #003366;
+  color: white !important;
+  font-size: 28px !important;
+}
+
+.container-fluid {
+  background-color: #003366;
+  padding: 1px 0px 0px 0px;
+}
+
+.center {
+  margin: auto;
+  width: 30%;
+  border: 3px solid white;
+  padding: 10px;
+}
+
+.center1 {
+  margin: auto;
+  width: 50%;
+  border: 3px solid white;
+  padding: 10px;
+}
+
+.vertical-center {
+  color : red;
+  font-weight: bold;
+  font-family: "Arial Black", Gadget, sans-serif;
+  margin-top: 10px;
+  width: 30%;
+  border: 3px solid white;
+  padding: 80px;
+  background-color: #ffffff;
+  opacity: 0.8;
+}
+
+.modal-header, h4, .close {
+  background-color: #5cb85c;
+  color:white !important;
+  text-align: center;
+  font-size: 30px;
+}
+
+.modal-footer {
+  background-color: #f9f9f9;
+}
+
+.mainpage {
+  background-image: url("/img/boats.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.homepage {
+  background-image: url("/img/beach.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

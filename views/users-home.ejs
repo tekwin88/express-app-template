@@ -1,0 +1,25 @@
+<div class="container center1">
+  <p>Welcome <%= currentUserLoggedIn %><p>
+  <p>This is your home page.</p>
+
+  <div class="container">
+    <% for (var i =0; i < data.length; i++) { %>
+      <form class="form" id="form<%= data[i].id %>" action="index.html" method="post">
+        <label for="noteId" class="label label-default">Id</label>
+        <div class="input-id">
+          <input type="text" name="id" value="<%= data[i].id %>"></input>
+        </div>
+        <label for="noteTitle" class="label label-primary">Title</label>
+        <div class="input-title">
+          <input type="text" name="title" value="<%= data[i].title %>"></input>
+        </div>
+          <label for="noteBody" class="label label-success">Body</label>
+        <div class="input-body">
+          <input type="text" name="body" value="<%= data[i].body %>"></input>
+        </div>
+        <button class="btn btn-sm btn-danger control-label-blue delete" type="button" name="Delete" id=<%= data[i].id %>>Delete</button>
+        <button class="btn btn-sm btn-warning control-label-blue edit" type="button" name="Edit" id=<%= data[i].id %>>Edit</button><br>
+      </form>
+    <% } %>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 const express = require('express')
 const ejsLayouts = require('express-ejs-layouts')
 const bodyParser = require('body-parser')
-const passport = require('./config/ppConfig')
+const passport = require('./config/passport')
 const session = require('express-session')
 const flash = require('connect-flash')
 const router = require('./config/routes')
@@ -25,6 +25,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }))
+
 app.use(flash())
 app.use(passport.initialize())
 app.use(passport.session())
@@ -35,8 +36,13 @@ app.use(function (req, res, next) {
 })
 app.use(express.static('public'))
 
+app.use('/auth', require('./controllers/auth'));
 // wiring up the router
 app.use('/', router)
+//add-lty
+app.get('/', function(req, res) {
+  res.render('index');
+});
 
 // error handling
 app.use((err, req, res, next) => {

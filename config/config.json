@@ -1,17 +1,19 @@
 {
   "development": {
-    "database": "database_development",
+    "username": "postgres",
+    "password": "tek5255D",
+    "database": "mynotetaker_development",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "database": "database_test",
+    "username": "postgres",
+    "password": "tek5255D",
+    "database": "mynotetaker_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "use_env_variable": "DATABASE_URL"
   }
 }
