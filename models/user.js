@@ -2,7 +2,7 @@
 
 // at the very top, require bcrypt to use bcryptfs for windows
 var bcrypt = require('bcryptjs');
-var DataTypes = require('Sequelize').DataTypes
+var DataTypes = require('sequelize').DataTypes
 
 var attributes = {
   email: {
