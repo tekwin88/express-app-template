@@ -1,8 +1,8 @@
 'use strict';
 
-// at the very top, require bcrypt to use bcryptjs for windows
+// at the very top, require bcrypt to use bcryptfs for windows
 var bcrypt = require('bcryptjs');
-var DataTypes = require('sequelize').DataTypes
+var DataTypes = require('Sequelize').DataTypes
 
 var attributes = {
   email: {
@@ -52,8 +52,6 @@ module.exports = function(sequelize, DataTypes) {
       },
       instanceMethods: {
         validPassword: function(password) {
-        console.log('password =', password)
-        console.log('this.password =', this.password)
         // return if the password matches the hash
         return bcrypt.compareSync(password, this.password);
         },

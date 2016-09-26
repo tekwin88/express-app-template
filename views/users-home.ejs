@@ -2,12 +2,19 @@
   <p>Welcome <%= currentUserLoggedIn %><p>
   <p>This is your home page.</p>
 
+
+  console.log('it did come hereeeeee before', <%= data %>)
+
   <div class="container">
     <% for (var i =0; i < data.length; i++) { %>
       <form class="form" id="form<%= data[i].id %>" action="index.html" method="post">
         <label for="noteId" class="label label-default">Id</label>
         <div class="input-id">
           <input type="text" name="id" value="<%= data[i].id %>"></input>
+        </div>
+        <label for="noteEmail" class="label label-info">Email</label>
+        <div class="input-email">
+          <input type="text" name="email" value="<%= data[i].email %>"></input>
         </div>
         <label for="noteTitle" class="label label-primary">Title</label>
         <div class="input-title">

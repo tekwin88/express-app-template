@@ -29,6 +29,15 @@ input {
   width: 5%;
 }
 
+.input-email {
+  font-size: 12px;
+  color: black;
+  background-color: white;
+  padding-left: 7px;
+  box-sizing: border-box;
+  width: 10%;
+}
+
 .input-title {
   font-size: 12px;
   color: black;

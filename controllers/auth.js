@@ -32,9 +32,10 @@ router.post('/signup', function(req, res) {
       res.redirect('auth/signup');
     }
   }).catch(function(error) {
+    console.log('error', error.message)
     // FLASH
     req.flash('error', error.message);
-    res.redirect('auth/signup');
+    res.redirect('/auth/signup');
   });
 });
 
@@ -43,7 +44,7 @@ router.get('/login', function(req, res) {
 });
 
 router.post('/login', passport.authenticate('local', {
-  successRedirect: '/notes',
+  successRedirect: '/notes/:email',
   failureRedirect: '/auth/login',
   // FLASH
   failureFlash: 'Invalid username and/or password',

@@ -9,11 +9,15 @@
   "test": {
     "username": "postgres",
     "password": "tek5255D",
-    "database": "mynotetaker_test",
+    "database": "mynotemaker_productionaker_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "use_env_variable": "DATABASE_URL"
+    "username": "postgres",
+    "password": "tek5255D",
+    "database": "mynotetaker_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
   }
 }

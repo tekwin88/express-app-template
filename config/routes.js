@@ -5,6 +5,7 @@ var db = require('../models')
 var passport = require('../config/passport');
 var currentUserLoggedIn
 var noteId
+var noteEmail
 var noteTitle
 var noteBody
 
@@ -29,23 +30,22 @@ router.post('/users', function(req, res){
 })
 
 router.get('/notes', function(req, res) {
-  currentUserLoggedIn = req.user.username;
+  currentUserLoggedIn = req.user.email;
   db.note.findAll().then(function(data) {
     res.render('users-home', {currentUserLoggedIn: currentUserLoggedIn, data: data})
   });
 })
 
-router.post('/notes', function(req, res){
-  db.note.create({
-    title: req.body.title,
-    body: req.body.body
-  }).then(function(data) {
-    res.json(data)
+// newly added -- lty//
+router.get('/notes/:email', function(req, res) {
+  currentUserLoggedIn = req.user.email;
+  db.note.findAll().then(function(data) {
+    res.render('users-home', {currentUserLoggedIn: currentUserLoggedIn, data: data})
   });
 })
 
 router.get('/notes/new', function(req, res) {
-  currentUserLoggedIn = req.user.username;
+  currentUserLoggedIn = req.user.email;
   res.render('notes-new', {currentUserLoggedIn: currentUserLoggedIn})
 })
 
@@ -57,6 +57,29 @@ router.get('/notes/:id', function(req, res) {
   });
 })
 
+router.post('/notes', function(req, res){
+  db.note.create({
+    email: req.body.email,
+    title: req.body.title,
+    body: req.body.body
+  }).then(function(data) {
+    res.json(data)
+  });
+})
+
+// newly added -- lty//
+router.post('/notes/:email', function(req, res){
+  db.note.create({
+    email: req.body.email,
+    title: req.body.title,
+    body: req.body.body
+  }).then(function(data) {
+    res.json(data)
+  });
+})
+
+
+
 router.delete('/notes/:id', function(req, res) {
   db.note.destroy({
     where: {id: req.params.id}
@@ -67,6 +90,7 @@ router.delete('/notes/:id', function(req, res) {
 
 router.put('/notes/:id', function(req, res) {
   db.note.update({
+    email: req.body.email,
     title: req.body.title,
     body: req.body.body
     }, {
