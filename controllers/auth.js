@@ -44,7 +44,7 @@ router.get('/login', function(req, res) {
 });
 
 router.post('/login', passport.authenticate('local', {
-  successRedirect: '/notes/:email',
+  successRedirect: '/notes/email',
   failureRedirect: '/auth/login',
   // FLASH
   failureFlash: 'Invalid username and/or password',

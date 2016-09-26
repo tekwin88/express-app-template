@@ -37,11 +37,16 @@ router.get('/notes', function(req, res) {
 })
 
 // newly added -- lty//
-router.get('/notes/:email', function(req, res) {
+router.get('/notes/email', function(req, res) {
   currentUserLoggedIn = req.user.email;
-  db.note.findAll().then(function(data) {
-    res.render('users-home', {currentUserLoggedIn: currentUserLoggedIn, data: data})
-  });
+  db.note.findAll({where:{email:currentUserLoggedIn}}).then(function(data) {
+    if(data.length>0) {
+      res.render('users-home', {currentUserLoggedIn: currentUserLoggedIn, data: data})
+    }
+    else {
+      res.render('notes-new', {currentUserLoggedIn: currentUserLoggedIn})
+    }
+  })
 })
 
 router.get('/notes/new', function(req, res) {
@@ -68,13 +73,15 @@ router.post('/notes', function(req, res){
 })
 
 // newly added -- lty//
-router.post('/notes/:email', function(req, res){
+router.post('/notes/email', function(req, res){
+  console.log('It did comereee hereeee')
+  currentUserLoggedIn = req.user.email;
   db.note.create({
     email: req.body.email,
     title: req.body.title,
     body: req.body.body
   }).then(function(data) {
-    res.json(data)
+    res.redirect('/notes/email')
   });
 })
 
