@@ -64,29 +64,16 @@ router.get('/notes/:id', function(req, res) {
 })
 
 router.post('/notes', function(req, res){
-  db.note.create({
-    email: req.body.email,
-    title: req.body.title,
-    body: req.body.body
-  }).then(function(data) {
-    res.json(data)
-  });
-})
-
-// newly added -- lty//
-router.post('/notes/email', function(req, res){
-  console.log('It did comereee hereeee')
   currentUserLoggedIn = req.user.email;
   db.note.create({
     email: req.body.email,
     title: req.body.title,
     body: req.body.body
   }).then(function(data) {
+    // res.json(data)
     res.redirect('/notes/email')
   });
 })
-
-
 
 router.delete('/notes/:id', function(req, res) {
   db.note.destroy({

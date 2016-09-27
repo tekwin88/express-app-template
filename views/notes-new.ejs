@@ -2,7 +2,7 @@
   <p>Welcome <%= currentUserLoggedIn %><p>
   <p>This is the new note page.</p>
 
-  <form action="/notes/email" method="POST">
+  <form action="/notes" method="POST">
     <div class="form-group">
       <label for="noteEmail" class="control-label-white">Email</label>
       <input id="noteEmail" class="form-control1 control-label-black" type="email" name="email" value="<%= currentUserLoggedIn %>">
