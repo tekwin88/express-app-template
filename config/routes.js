@@ -42,6 +42,7 @@ router.get('/notes/email', function(req, res) {
   db.note.findAll({where:{email:currentUserLoggedIn}}).then(function(data) {
     if(data.length>0) {
       res.render('users-home', {currentUserLoggedIn: currentUserLoggedIn, data: data})
+      console.log('current user logged in ' + currentUserLoggedIn);
     }
     else {
       res.render('notes-new', {currentUserLoggedIn: currentUserLoggedIn})
