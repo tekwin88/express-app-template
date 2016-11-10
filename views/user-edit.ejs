@@ -1,6 +1,6 @@
 <div class="container center1">
   <p>Welcome <%= currentUserLoggedIn %><p>
-  <p>This is your home page.</p>
+  <p>This is your page for editing !!!</p>
 
 
   <div class="container">
@@ -23,7 +23,8 @@
           <input type="text" name="body" value="<%= data[i].body %>"></input>
         </div>
         <button class="btn btn-sm btn-danger control-label-blue delete" type="button" name="Delete" id=<%= data[i].id %>>Delete</button>
-        <button class="btn btn-sm btn-warning control-label-blue edit" type="button" name="Edit" id=<%= data[i].id %>>Edit</button><br>
+        <button class="btn btn-sm btn-warning control-label-blue save" type="button" name="Save" id=<%= data[i].id %>>Save</button>
+        <button class="btn btn-sm btn-info control-label-blue new" type="button" name="New" id=<%= data[i].id %>><a href="/notes/new">New</a></button><br>
       </form>
     <% } %>
   </div>

@@ -1,0 +1,35 @@
+<div class="container center1">
+  <p>Welcome <%= currentUserLoggedIn %><p>
+  <p>This is user home page</p>
+
+  <div class="container">
+    <% for (var i =0; i < data.length; i++) { %>
+      <div id="form<%= data[i].id %>">
+      <!-- <form class="form" id="form<%= data[i].id %>" action="index.html" method="post"> -->
+        <label for="noteId" class="label label-default">Id</label>
+        <div class="input-id">
+          <input type="text" name="id" value="<%= data[i].id %>"></input>
+        </div>
+        <label for="noteEmail" class="label label-info">Email</label>
+        <div class="input-email">
+          <input type="text" name="email" value="<%= data[i].email %>"></input>
+        </div>
+        <label for="noteTitle" class="label label-primary">Title</label>
+        <div class="input-title">
+          <input type="text" name="title" value="<%= data[i].title %>"></input>
+        </div>
+          <label for="noteBody" class="label label-success">Body</label>
+        <div class="input-body">
+          <input type="text" name="body" value="<%= data[i].body %>"></input>
+        </div>
+        <!-- Trigger the modal with a button -->
+        <form action="auth/logout" method="GET">
+          <a href="/notes/new"><button class="btn btn-sm btn-info control-label-blue new" type="button" name="New">New</button></a>
+          <button type="button" class="btn btn-sm btn-danger control-label-blue"><a href="auth/logout">Log Out</a></button>
+        </form>
+      <!-- <button class="btn btn-sm btn-warning control-label-blue save" type="button" name="Save" id=<%= data[i].id %>>Save</button><br> -->
+      <!-- </form> -->
+      </div>
+    <% } %>
+  </div>
+</div>

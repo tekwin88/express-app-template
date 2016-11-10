@@ -32,7 +32,7 @@ router.post('/users', function(req, res){
 router.get('/notes', function(req, res) {
   currentUserLoggedIn = req.user.email;
   db.note.findAll().then(function(data) {
-    res.render('users-home', {currentUserLoggedIn: currentUserLoggedIn, data: data})
+    res.render('user-edit', {currentUserLoggedIn: currentUserLoggedIn, data: data})
   });
 })
 
@@ -41,7 +41,7 @@ router.get('/notes/email', function(req, res) {
   currentUserLoggedIn = req.user.email;
   db.note.findAll({where:{email:currentUserLoggedIn}}).then(function(data) {
     if(data.length>0) {
-      res.render('users-home', {currentUserLoggedIn: currentUserLoggedIn, data: data})
+      res.render('user-edit', {currentUserLoggedIn: currentUserLoggedIn, data: data})
       console.log('current user logged in ' + currentUserLoggedIn);
     }
     else {
@@ -83,6 +83,14 @@ router.delete('/notes/:id', function(req, res) {
   });
 })
 
+router.get('/user-home', function(req, res){
+  currentUserLoggedIn = req.user.email;
+  db.note.findAll({where:{email:currentUserLoggedIn}}).then(function(data) {
+    res.render('user-home', {currentUserLoggedIn: currentUserLoggedIn, data: data})
+  });
+  // res.render('all-notes')
+})
+
 router.put('/notes/:id', function(req, res) {
   db.note.update({
     email: req.body.email,
@@ -93,6 +101,7 @@ router.put('/notes/:id', function(req, res) {
       id: req.params.id
     }
   }).then(function(data) {
+    console.log(data);
     res.json(data)
   });
 })

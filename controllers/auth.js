@@ -23,8 +23,8 @@ router.post('/signup', function(req, res) {
       // replace the contents of this if statement with the code below
       // FLASH
       passport.authenticate('local', {
-        successRedirect: '/',
-        successFlash: 'Account created and logged in'
+        successFlash: 'Account created and logged in',
+        successRedirect: '/notes/new'
       })(req, res);
     } else {
       // FLASH
